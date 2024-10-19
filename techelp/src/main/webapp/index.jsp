@@ -3,14 +3,15 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <%@ taglib prefix="fn" uri="jakarta.tags.functions"%>
 <%@ taglib prefix="fmt" uri="jakarta.tags.fmt"%>
+
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
+
 <!DOCTYPE html>
 <html>
 	<head>
-		<!-- Required meta tags -->
 	    <meta charset="utf-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
-	     <!-- Bootstrap CSS -->
-	    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	    <link rel="stylesheet" href="${contextPath}/resources/bootstrap/bootstrap.min.css" />
 		<title>TecHelp</title>
 	</head>
 <body>
@@ -78,7 +79,7 @@
 	  </div>
 
 
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+	<script src="${contextPath}/resources/bootstrap/bootstrap.bundle.min.js" ></script>
 	<script>
 		const toastElList = document.querySelectorAll('.toast')
 		const toastList = [...toastElList].map(toastEl => new bootstrap.Toast(toastEl))
