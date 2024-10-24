@@ -7,20 +7,33 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 
 <jsp:include page="../../../components/header.jsp">
-	<jsp:param name="title" value="Clientes" />
+	<jsp:param name="title" value="Clientes | Funcionário" />
 </jsp:include>
 
 <jsp:include page="../../../components/navbar-employee.jsp" />
 
 <div class="container-lg">
+	<h3>Clientes</h3>
+	<div class="d-flex justify-content-end my-3">
+		<a href="${contextPath}/authenticated/employee/customer-register/customer-register.jsp" class="btn btn-primary">
+			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+			  <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
+			</svg>
+			<span>Novo cliente</span>
+		</a>
+	</div>
 	<div class="table-responsive">
-		<table class="table table-bordered">
-		  <thead>
+		<table class="table table-striped">
+		  <thead class="table-light">
 		    <tr>
 		      <th scope="col">#</th>
 		      <th scope="col">Nome</th>
 		      <th scope="col">Email</th>
 		      <th scope="col">Telefone</th>
+		      <th scope="col">CPF</th>
+		      <th scope="col">Status</th>
+		      <th scope="col">Cidade</th>
+		      <th scope="col">Estado</th>
 		    </tr>
 		  </thead>
 		  <tbody>
@@ -30,6 +43,10 @@
 			      <td><c:out value="${customer.name}"/></td>
 			      <td><c:out value="${customer.email}"/></td>
 			      <td><c:out value="${customer.phone}"/></td>
+			      <td><c:out value="${customer.document}"/></td>
+			      <td><c:out value="${customer.active}"/></td>
+			      <td><c:out value="${customer.address.city}"/></td>
+			      <td><c:out value="${customer.address.state}"/></td>
 			    </tr>
 		    </c:forEach>
 		  </tbody>

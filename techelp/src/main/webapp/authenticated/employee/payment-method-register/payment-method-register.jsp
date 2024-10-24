@@ -7,17 +7,17 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 
 <jsp:include page="../../../components/header.jsp">
-	<jsp:param name="title" value="Cadastro de cliente" />
+	<jsp:param name="title" value="Cadastro de cliente | Funcionário" />
 </jsp:include>
 
 <jsp:include page="../../../components/navbar-employee.jsp" />
 
 <div class="container-lg">
-	<h1>Cadastro de cliente</h1>
+	<h3>Cadastrar forma de pagamento</h3>
 	<form action="${contextPath}/PaymentMethodRegisterServlet" method="POST">
 	  <div class="row">
 		  <div class="col-6">
-		  	<div class="mb-3">
+		  	  <div class="mb-3">
 			    <label for="name" class="form-label">Nome</label>
 			    <input type="text" class="form-control" name="name" id="name">
 			  </div>

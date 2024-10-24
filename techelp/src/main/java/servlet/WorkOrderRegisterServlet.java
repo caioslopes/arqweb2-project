@@ -28,6 +28,17 @@ public class WorkOrderRegisterServlet extends HttpServlet {
         super();
     }
 
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		CustomerDao customerDao = new CustomerDao(DataSourceSearcher.getInstance().getDataSource());
+		PaymentMethodDao paymentMethodDao = new PaymentMethodDao(DataSourceSearcher.getInstance().getDataSource());
+		request.setAttribute("customers", customerDao.getCustomers());
+		request.setAttribute("paymentMethods", paymentMethodDao.getPaymentMethods());
+		RequestDispatcher dispatcher = null;
+		dispatcher = request.getRequestDispatcher("/authenticated/employee/work-order-register/work-order-register.jsp");
+		dispatcher.forward(request, response);
+	}
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String description = request.getParameter("description");
 //		String createdAt = request.getParameter("createdAt");

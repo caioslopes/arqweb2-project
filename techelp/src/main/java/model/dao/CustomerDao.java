@@ -10,6 +10,7 @@ import java.util.Optional;
 
 import javax.sql.DataSource;
 
+import model.entity.Address;
 import model.entity.Customer;
 
 public class CustomerDao {
@@ -94,7 +95,7 @@ private DataSource dataSource;
 	}
 	
 	public List<Customer> getCustomers(){
-		String sql = "SELECT id,name,email,phone FROM customer";
+		String sql = "SELECT id,name,email,phone,document,active,city,state FROM customer";
 		List<Customer> customers = new ArrayList<Customer>();
 
 		try(Connection conn = dataSource.getConnection();
@@ -106,6 +107,15 @@ private DataSource dataSource;
 					Customer.setName(rs.getString(2));
 					Customer.setEmail(rs.getString(3));
 					Customer.setPhone(rs.getString(4));
+					Customer.setDocument(rs.getString(5));
+					Customer.setActive(rs.getBoolean(6));
+					
+					Address address = new Address();
+					address.setCity(rs.getString(7));
+					address.setState(rs.getString(8));
+					
+					Customer.setAddress(address);
+					
 					customers.add(Customer);
 				}
 			}

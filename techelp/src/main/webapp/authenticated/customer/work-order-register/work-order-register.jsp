@@ -7,7 +7,7 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 
 <jsp:include page="../../../components/header.jsp">
-	<jsp:param name="title" value="Solicitar ordem de serviço" />
+	<jsp:param name="title" value="Solicitar ordem de serviço | Cliente" />
 </jsp:include>
 
 <jsp:include page="../../../components/navbar-customer.jsp" />
