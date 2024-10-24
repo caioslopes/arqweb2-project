@@ -6,11 +6,11 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 public class DataSourceSearcher {
-	
-	private static DataSourceSearcher instance = 
+
+	private static DataSourceSearcher instance =
 			new DataSourceSearcher();
 	private DataSource dataSource;
-	
+
 	private DataSourceSearcher() {
 		try {
 			Context context = new InitialContext();
@@ -20,7 +20,7 @@ public class DataSourceSearcher {
 			throw new RuntimeException("Erro durante o lookup", e);
 		}
 	}
-	
+
 	public DataSource getDataSource() {
 		return dataSource;
 	}

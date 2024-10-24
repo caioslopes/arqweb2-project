@@ -10,9 +10,11 @@
 	<jsp:param name="title" value="Cadastro de cliente" />
 </jsp:include>
 
+<jsp:include page="../../../components/navbar-employee.jsp" />
+
 <div class="container-lg">
 	<h1>Cadastro de cliente</h1>
-	<form action="${contextPath}/customerRegister" method="POST">
+	<form action="${contextPath}/CustomerRegister" method="POST">
 	  <div class="row">
 		  <div class="col-6">
 		  	<div class="mb-3">
@@ -75,7 +77,7 @@
 		  </div>
 	  </div>
 
-	  <button type="submit" class="btn btn-primary">Submit</button>
+	  <button type="submit" class="btn btn-primary">Cadastrar</button>
 	</form>
 </div>
 

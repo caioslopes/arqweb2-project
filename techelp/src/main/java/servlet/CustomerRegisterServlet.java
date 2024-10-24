@@ -14,14 +14,15 @@ import model.entity.Customer;
 import util.DataSourceSearcher;
 import util.PasswordEncoder;
 
-@WebServlet("/customerRegister")
+@WebServlet("/CustomerRegister")
 public class CustomerRegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
     public CustomerRegisterServlet() {
         super();
     }
 
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String name = request.getParameter("name");
 		String email = request.getParameter("email");
@@ -36,7 +37,7 @@ public class CustomerRegisterServlet extends HttpServlet {
 		String postal_code = request.getParameter("postal_code");
 		String city = request.getParameter("city");
 		String state = request.getParameter("state");
-		
+
 		Customer customer = new Customer();
 		customer.setName(name);
 		customer.setEmail(email);
@@ -44,7 +45,7 @@ public class CustomerRegisterServlet extends HttpServlet {
 		customer.setDocument(document);
 		customer.setPhone(phone);
 		customer.setActive(Boolean.valueOf(active));
-		
+
 		Address address = new Address();
 		address.setStreet(street);
 		address.setNumber(number);
@@ -53,21 +54,21 @@ public class CustomerRegisterServlet extends HttpServlet {
 		address.setPostalCode(postal_code);
 		address.setCity(city);
 		address.setState(state);
-		
+
 		customer.setAddress(address);
-		
+
 		RequestDispatcher dispatcher = null;
-		
-		CustomerDao customerDao = new CustomerDao(DataSourceSearcher.getInstance().getDataSource());		
-		
+
+		CustomerDao customerDao = new CustomerDao(DataSourceSearcher.getInstance().getDataSource());
+
 		if(customerDao.save(customer)) {
 			request.setAttribute("result", "registered");
-			dispatcher = request.getRequestDispatcher("/index.jsp");
+			dispatcher = request.getRequestDispatcher("/CustomersServlet");
 		}else {
 			request.setAttribute("result", "notRegistered");
-			dispatcher = request.getRequestDispatcher("/index.jsp");
+			dispatcher = request.getRequestDispatcher("/CustomersServlet");
 		}
-		
+
 		dispatcher.forward(request, response);
 	}
 

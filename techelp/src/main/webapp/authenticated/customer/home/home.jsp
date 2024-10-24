@@ -7,11 +7,13 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 
 <jsp:include page="../../../components/header.jsp">
-	<jsp:param name="title" value="Ordem de serviço" />
+	<jsp:param name="title" value="Inicio" />
 </jsp:include>
 
-<div>
-	<p>Ordem de serviço</p>
+<jsp:include page="../../../components/navbar-customer.jsp" />
+
+<div class="container-lg">
+	<a class="btn btn-primary" href="#">Suas ordens de serviço</a>
 </div>
 
 <jsp:include page="../../../components/footer.jsp" />

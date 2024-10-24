@@ -1,3 +1,5 @@
+DROP DATABASE techelp;
+
 CREATE DATABASE techelp;
 
 USE techelp;

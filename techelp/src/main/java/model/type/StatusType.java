@@ -6,7 +6,7 @@ public enum StatusType {
 	APPROVED("Aprovada"),
 	IN_PROGRESS("Em andamento"),
 	COMPLETED("Finalizada");
-	
+
 	private String description;
 
 	private StatusType(String description) {
@@ -16,5 +16,5 @@ public enum StatusType {
 	public String getDescription() {
 		return description;
 	}
-	
+
 }
